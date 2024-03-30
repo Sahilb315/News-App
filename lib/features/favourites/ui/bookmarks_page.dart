@@ -1,7 +1,5 @@
 // ignore_for_file: unrelated_type_equality_checks
 
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news_app/features/bottom_navigation/ui/bottom_nav_page.dart';
@@ -21,7 +19,6 @@ class _BookmarksPageState extends State<BookmarksPage> {
   final favBloc = FavouritesBloc();
   @override
   void initState() {
-    log("message");
     favBloc.add(FavouritesFetchEvent());
     super.initState();
   }
@@ -32,7 +29,12 @@ class _BookmarksPageState extends State<BookmarksPage> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.white,
-        title: const Text("Favourites"),
+        title: const Text(
+          "Favourites",
+          style: TextStyle(
+            fontFamily: "Poppins",
+          ),
+        ),
         actions: [
           IconButton(
             onPressed: () {
@@ -78,7 +80,7 @@ class _BookmarksPageState extends State<BookmarksPage> {
               context,
               (route) => route == const BookmarksPage(),
             );
-              Navigator.push(
+            Navigator.push(
                 context,
                 MaterialPageRoute(
                   builder: (context) => LoginPage(),
@@ -96,6 +98,18 @@ class _BookmarksPageState extends State<BookmarksPage> {
             );
           } else if (state is FavouritesLoadedState) {
             final favourites = state.favourites;
+            if (favourites.isEmpty) {
+              return const Center(
+                child: Text(
+                  "No favourite articles",
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontFamily: "Poppins",
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              );
+            }
             return Column(
               children: [
                 Expanded(

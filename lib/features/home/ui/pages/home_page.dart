@@ -116,7 +116,10 @@ class _HomePageState extends State<HomePage> {
               slivers: [
                 SliverAppBar(
                   backgroundColor: Colors.white,
-                  title: const Text('News'),
+                  title: const Text(
+                    'News',
+                    style: TextStyle(fontFamily: "Poppins"),
+                  ),
                   surfaceTintColor: Colors.white,
                   actions: [
                     IconButton(
@@ -149,6 +152,7 @@ class _HomePageState extends State<HomePage> {
                                       fontWeight: FontWeight.w600,
                                       color: Colors.black,
                                       fontSize: 18,
+                                      fontFamily: "Poppins",
                                     ),
                                   ),
                                   TextButton(
@@ -158,7 +162,10 @@ class _HomePageState extends State<HomePage> {
                                     },
                                     child: const Text(
                                       "See more",
-                                      style: TextStyle(color: Colors.blue),
+                                      style: TextStyle(
+                                        color: Colors.blue,
+                                        fontFamily: "Poppins",
+                                      ),
                                     ),
                                   ),
                                 ],
@@ -176,6 +183,7 @@ class _HomePageState extends State<HomePage> {
                                   fontWeight: FontWeight.w600,
                                   color: Colors.black,
                                   fontSize: 18,
+                                  fontFamily: "Poppins",
                                 ),
                               ),
                               ListView.builder(

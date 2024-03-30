@@ -51,7 +51,12 @@ class CategoryListPage extends StatelessWidget {
         body: CustomScrollView(
           slivers: [
             const SliverAppBar(
-              title: Text('News Categories'),
+              title: Text(
+                'News Categories',
+                style: TextStyle(
+                  fontFamily: "Poppins",
+                ),
+              ),
               backgroundColor: Colors.white,
               surfaceTintColor: Colors.white,
             ),
@@ -73,8 +78,7 @@ class CategoryListPage extends StatelessWidget {
                           onTap: () {
                             categoryBloc
                                 .add(CategoryListNavigateToCategoryPageEvent(
-                              categoryName:
-                                  listOfCategories[index],
+                              categoryName: listOfCategories[index],
                             ));
                           },
                           child: Container(
@@ -99,6 +103,7 @@ class CategoryListPage extends StatelessWidget {
                                   color: Colors.white,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 16,
+                                  fontFamily: "Poppins",
                                 ),
                               ),
                             ),

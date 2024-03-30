@@ -9,6 +9,7 @@ class PasswordTextField extends StatelessWidget {
     return TextField(
       controller: controller,
       cursorColor: Colors.blue,
+      obscureText: true,
       decoration: InputDecoration(
         hintText: "Password",
         hintStyle: const TextStyle(color: Colors.grey),

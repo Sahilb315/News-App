@@ -70,7 +70,11 @@ class LoginPage extends StatelessWidget {
               ),
             );
           } else if (state is LoginSuccessfulActionState) {
-            Navigator.pushReplacement(
+            Navigator.popUntil(
+              context,
+              (route) => route == LoginPage(),
+            );
+            Navigator.push(
               context,
               PageRouteBuilder(
                 pageBuilder: (context, animation, secondaryAnimation) =>

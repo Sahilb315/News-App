@@ -30,7 +30,11 @@ class RegisterPage extends StatelessWidget {
           listenWhen: (previous, current) => current is RegisterActionState,
           listener: (context, state) {
             if (state is RegisterSuccessfulActionState) {
-              Navigator.pushReplacement(
+              Navigator.popUntil(
+              context,
+              (route) => route == RegisterPage(),
+            );
+              Navigator.push(
                 context,
                 PageRouteBuilder(
                   pageBuilder: (context, animation, secondaryAnimation) =>
