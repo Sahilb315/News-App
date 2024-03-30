@@ -117,8 +117,9 @@ class _HomePageState extends State<HomePage> {
                   actions: [
                     IconButton(
                       onPressed: () {
-                        homeBloc.add(
-                            HomeNavigateToSearchPageEvent(newsList: newsList + state.topStories));
+                        homeBloc.add(HomeNavigateToSearchPageEvent(
+                          newsList: newsList + state.topStories,
+                        ));
                       },
                       icon: const Icon(CupertinoIcons.search),
                     ),

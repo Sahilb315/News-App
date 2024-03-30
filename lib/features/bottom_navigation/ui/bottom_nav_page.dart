@@ -19,7 +19,7 @@ class _MyBottomNavigationPageState extends State<MyBottomNavigationPage> {
   final List<Widget> _pages = [
     const HomePage(),
     CategoryListPage(),
-    const FavouritePage(),
+    FavouritePage(),
   ];
   @override
   void initState() {
