@@ -1,3 +1,4 @@
+import 'dart:developer';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -14,12 +15,19 @@ class BookmarkRepo {
           .get();
       final data = snapshot.data() as Map<String, dynamic>;
       List bookmarksFromDB = data['bookmarks'];
-      // log(bookmarksFromDB.toString());
       List<NewsModel> bookmarks =
           bookmarksFromDB.map((e) => NewsModel.fromMap(e)).toList();
       return FavouritesLoadedState(favourites: bookmarks);
     } catch (e) {
       return FavouritesErrorState(errorMessage: e.toString());
+    }
+  }
+
+  static Future<void> logOut() async {
+    try {
+      await FirebaseAuth.instance.signOut();
+    } catch (e) {
+      log(e.toString());
     }
   }
 }

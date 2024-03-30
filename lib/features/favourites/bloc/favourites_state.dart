@@ -26,3 +26,5 @@ class FavouritesErrorState extends FavouritesState {
 
   FavouritesErrorState({required this.errorMessage});
 }
+
+class LogOutActionState extends FavouriteActionState {}

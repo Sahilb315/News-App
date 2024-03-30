@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -23,8 +24,11 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     homeBloc.add(HomeFetchEvent());
+    user = FirebaseAuth.instance.currentUser;
     super.initState();
   }
+
+  User? user;
 
   @override
   Widget build(BuildContext context) {

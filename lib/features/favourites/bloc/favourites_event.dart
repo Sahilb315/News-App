@@ -10,3 +10,5 @@ class FavouritesNavigateToDetailedPageEvent extends FavouritesEvent {
 }
 
 class FavouritesFetchEvent extends FavouritesEvent {}
+
+class LogOutEvent extends FavouritesEvent {}

@@ -8,6 +8,7 @@ import 'package:news_app/features/bottom_navigation/ui/bottom_nav_page.dart';
 import 'package:news_app/features/detailed_news/ui/detailed_news_page.dart';
 import 'package:news_app/features/favourites/bloc/favourites_bloc.dart';
 import 'package:news_app/features/home/ui/widgets/news_card.dart';
+import 'package:news_app/features/login/ui/login_page.dart';
 
 class BookmarksPage extends StatefulWidget {
   const BookmarksPage({super.key});
@@ -32,6 +33,14 @@ class _BookmarksPageState extends State<BookmarksPage> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         title: const Text("Favourites"),
+        actions: [
+          IconButton(
+            onPressed: () {
+              favBloc.add(LogOutEvent());
+            },
+            icon: const Icon(Icons.logout_rounded),
+          ),
+        ],
       ),
       body: BlocConsumer<FavouritesBloc, FavouritesState>(
         bloc: favBloc,
@@ -64,6 +73,16 @@ class _BookmarksPageState extends State<BookmarksPage> {
                 },
               ),
             );
+          } else if (state is LogOutActionState) {
+            Navigator.popUntil(
+              context,
+              (route) => route == const BookmarksPage(),
+            );
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => LoginPage(),
+                ));
           }
         },
         builder: (context, state) {

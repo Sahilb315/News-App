@@ -15,6 +15,7 @@ class FavouritesBloc extends Bloc<FavouritesEvent, FavouritesState> {
     on<FavouritesNavigateToDetailedPageEvent>(
         favouritesNavigateToDetailedPageEvent);
     on<FavouritesFetchEvent>(favouritesFetchEvent);
+    on<LogOutEvent>(logOutEvent);
   }
 
   FutureOr<void> favouritesNavigateToDetailedPageEvent(
@@ -34,5 +35,11 @@ class FavouritesBloc extends Bloc<FavouritesEvent, FavouritesState> {
     } else if (result is FavouritesErrorState) {
       emit(FavouritesErrorState(errorMessage: result.errorMessage));
     }
+  }
+
+  FutureOr<void> logOutEvent(
+      LogOutEvent event, Emitter<FavouritesState> emit) async {
+    await BookmarkRepo.logOut();
+    emit(LogOutActionState());
   }
 }
