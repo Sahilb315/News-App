@@ -12,3 +12,17 @@ class FavouritesNavigateToDetailedPageActionState extends FavouriteActionState {
 
   FavouritesNavigateToDetailedPageActionState({required this.newsModel});
 }
+
+class FavouritesLoadingState extends FavouritesState {}
+
+class FavouritesLoadedState extends FavouritesState {
+  final List<NewsModel> favourites;
+
+  FavouritesLoadedState({required this.favourites});
+}
+
+class FavouritesErrorState extends FavouritesState {
+  final String errorMessage;
+
+  FavouritesErrorState({required this.errorMessage});
+}

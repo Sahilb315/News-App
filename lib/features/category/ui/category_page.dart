@@ -18,7 +18,8 @@ class _CategoryPageState extends State<CategoryPage> {
   @override
   void initState() {
     categoryBloc.add(
-        CategoryFetchEvent(categoryName: widget.categoryName.toLowerCase()));
+      CategoryFetchEvent(categoryName: widget.categoryName.toLowerCase()),
+    );
     super.initState();
   }
 

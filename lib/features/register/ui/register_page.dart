@@ -57,6 +57,7 @@ class RegisterPage extends StatelessWidget {
               ScaffoldMessenger.of(context).hideCurrentSnackBar();
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
+                  duration: const Duration(seconds: 1),
                   content: Text(state.errorMessage),
                   backgroundColor: Colors.red,
                 ),
@@ -66,6 +67,7 @@ class RegisterPage extends StatelessWidget {
               ScaffoldMessenger.of(context).hideCurrentSnackBar();
               ScaffoldMessenger.of(context).showSnackBar(
                 const SnackBar(
+                  duration: Duration(seconds: 1),
                   content: Text("Please fill out all fields"),
                   backgroundColor: Colors.red,
                 ),

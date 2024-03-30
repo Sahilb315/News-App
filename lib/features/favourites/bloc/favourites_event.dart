@@ -7,5 +7,6 @@ class FavouritesNavigateToDetailedPageEvent extends FavouritesEvent {
   final NewsModel newsModel;
 
   FavouritesNavigateToDetailedPageEvent({required this.newsModel});
-
 }
+
+class FavouritesFetchEvent extends FavouritesEvent {}

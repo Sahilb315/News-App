@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news_app/features/bottom_navigation/bloc/my_bottom_navigation_bloc.dart';
 import 'package:news_app/features/category/ui/category_list_page.dart';
-import 'package:news_app/features/favourites/ui/favourites_page.dart';
+import 'package:news_app/features/favourites/ui/bookmarks_page.dart';
 import 'package:news_app/features/home/ui/pages/home_page.dart';
 
 class MyBottomNavigationPage extends StatefulWidget {
@@ -19,7 +19,7 @@ class _MyBottomNavigationPageState extends State<MyBottomNavigationPage> {
   final List<Widget> _pages = [
     const HomePage(),
     CategoryListPage(),
-    FavouritePage(),
+    BookmarksPage(),
   ];
   @override
   void initState() {
