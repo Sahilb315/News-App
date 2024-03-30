@@ -44,4 +44,4 @@ app.*.map.json
 lib/firebase_options.dart
 lib/api_key.dart
 /android/app/google-services.json
-./macos/Runner/GoogleService-Info.plist
+/macos/Runner/GoogleService-Info.plist
