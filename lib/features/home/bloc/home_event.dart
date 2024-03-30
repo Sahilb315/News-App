@@ -12,3 +12,9 @@ class HomeNavigateToDetailedNewsPageEvent extends HomeEvent {
 }
 
 class HomeNavigateToTopStoriesPageEvent extends HomeEvent {}
+
+class HomeNavigateToSearchPageEvent extends HomeEvent {
+  final List<NewsModel> newsList;
+
+  HomeNavigateToSearchPageEvent({required this.newsList});
+}

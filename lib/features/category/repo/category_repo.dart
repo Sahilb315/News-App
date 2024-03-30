@@ -12,17 +12,21 @@ class CategoryRepo {
       var response = await http.get(Uri.parse(
         "$BASE_URL/top-headlines?category=$categoryName&country=us&apiKey=$API_KEY",
       ));
-      var jsonRes = jsonDecode(response.body);
-      List articles = jsonRes['articles'] as List;
+      if (response.statusCode == 200) {
+        var jsonRes = jsonDecode(response.body);
+        List articles = jsonRes['articles'] as List;
 
-      /// Can change how many articles you want
-      for (var element in articles) {
-        if (element['urlToImage'] == null || element['author'] == "Jessica Guynn, Bailey Schulz") {
-          continue;
+        /// Can change how many articles you want
+        for (var element in articles) {
+          if (element['urlToImage'] == null ||
+              element['author'] == "Jessica Guynn, Bailey Schulz") {
+            continue;
+          }
+          categoryList.add(NewsModel.fromMap(element));
         }
-        categoryList.add(NewsModel.fromMap(element));
+        return CategoryLoadedState(categoriesList: categoryList);
       }
-      return CategoryLoadedState(categoriesList: categoryList);
+      throw Exception("Failed to load news Status Code: ${response.statusCode}");
     } catch (e) {
       return CategoryErrorState(errorMessage: e.toString());
     }

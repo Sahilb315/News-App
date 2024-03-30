@@ -16,6 +16,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     on<HomeNavigateToDetailedNewsPageEvent>(
         homeNavigateToDetailedNewsPageEvent);
     on<HomeNavigateToTopStoriesPageEvent>(homeNavigateToTopStoriesPageEvent);
+    on<HomeNavigateToSearchPageEvent>(homeNavigateToSearchPageEvent);
   }
   final homeRepo = HomeRepo();
   FutureOr<void> homeFetchEvent(
@@ -38,6 +39,11 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
 
   FutureOr<void> homeNavigateToTopStoriesPageEvent(
       HomeNavigateToTopStoriesPageEvent event, Emitter<HomeState> emit) {
-        emit(HomeNavigateToTopStoriesPageActionState());
-      }
+    emit(HomeNavigateToTopStoriesPageActionState());
+  }
+
+  FutureOr<void> homeNavigateToSearchPageEvent(
+      HomeNavigateToSearchPageEvent event, Emitter<HomeState> emit) {
+    emit(HomeNavigateToSearchPageActionState(newsList: event.newsList));
+  }
 }

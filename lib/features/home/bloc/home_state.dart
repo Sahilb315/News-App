@@ -28,3 +28,9 @@ class HomeNavigateToDetailedNewsPageActionState extends HomeActionState {
 }
 
 class HomeNavigateToTopStoriesPageActionState extends HomeActionState {}
+
+class HomeNavigateToSearchPageActionState extends HomeActionState {
+  final List<NewsModel> newsList;
+
+  HomeNavigateToSearchPageActionState({required this.newsList});
+}

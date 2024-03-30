@@ -15,17 +15,21 @@ class TopStoriesRepo {
       var responseIn = await http.get(
         Uri.parse("$BASE_URL/top-headlines?country=in&apiKey=$API_KEY"),
       );
-      var jsonResUs = jsonDecode(responseUs.body);
-      var jsonResIn = jsonDecode(responseIn.body);
-      List articlesUs = jsonResUs['articles'] as List;
-      List articlesIn = jsonResIn['articles'] as List;
-      for (var element in articlesUs.getRange(0, 20)) {
-        topStories.add(NewsModel.fromMap(element));
+      if (responseIn.statusCode == 200 && responseUs.statusCode == 200) {
+        var jsonResUs = jsonDecode(responseUs.body);
+        var jsonResIn = jsonDecode(responseIn.body);
+        List articlesUs = jsonResUs['articles'] as List;
+        List articlesIn = jsonResIn['articles'] as List;
+        for (var element in articlesUs.getRange(0, 20)) {
+          topStories.add(NewsModel.fromMap(element));
+        }
+        for (var element in articlesIn.getRange(0, 20)) {
+          topStories.add(NewsModel.fromMap(element));
+        }
+        return TopStoriesLoadedState(topStories: topStories);
       }
-      for (var element in articlesIn.getRange(0, 20)) {
-        topStories.add(NewsModel.fromMap(element));
-      }
-      return TopStoriesLoadedState(topStories: topStories);
+      throw Exception(
+          "Failed to load news Status Code: ${responseIn.statusCode} & ${responseUs.statusCode}");
     } catch (e) {
       return TopStoriesErrorState(errorMessage: e.toString());
     }
