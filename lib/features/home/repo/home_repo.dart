@@ -17,7 +17,8 @@ class HomeRepo {
       /// Can change how many articles you want
       for (var element in articles.getRange(0, 35)) {
         /// Due to these one author and source, there is a error as they do not have images
-        if (element['author'] == "Tim Cushing" || element['source']['name'] == "Semrush.com") {
+        if (element['author'] == "Tim Cushing" ||
+            element['source']['name'] == "Semrush.com" || element['urlToImage'] == null) {
           continue;
         }
         newsList.add(NewsModel.fromMap(element));
@@ -42,9 +43,15 @@ class HomeRepo {
       List articlesUs = jsonResUs['articles'] as List;
       List articlesIn = jsonResIn['articles'] as List;
       for (var element in articlesUs.getRange(0, 4)) {
+        if (element['urlToImage'] == null) {
+          continue;
+        }
         topStories.add(NewsModel.fromMap(element));
       }
       for (var element in articlesIn.getRange(0, 4)) {
+        if (element['urlToImage'] == null) {
+          continue;
+        }
         topStories.add(NewsModel.fromMap(element));
       }
       return topStories;

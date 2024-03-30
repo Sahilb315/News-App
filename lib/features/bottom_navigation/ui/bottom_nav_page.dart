@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news_app/features/bottom_navigation/bloc/my_bottom_navigation_bloc.dart';
+import 'package:news_app/features/category/ui/category_list_page.dart';
+import 'package:news_app/features/favourites/ui/favourites_page.dart';
 import 'package:news_app/features/home/ui/pages/home_page.dart';
 
 class MyBottomNavigationPage extends StatefulWidget {
@@ -14,10 +16,10 @@ class MyBottomNavigationPage extends StatefulWidget {
 
 class _MyBottomNavigationPageState extends State<MyBottomNavigationPage> {
   final myNavigationBloc = MyBottomNavigationBloc();
-  final List<Widget> _pages = const [
-    HomePage(),
-    HomePage(), // Category Page
-    HomePage(), // Fav Page
+  final List<Widget> _pages = [
+    const HomePage(),
+    CategoryListPage(),
+    const FavouritePage(),
   ];
   @override
   void initState() {
