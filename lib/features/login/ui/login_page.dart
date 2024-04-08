@@ -110,7 +110,7 @@ class LoginPage extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
               const Text(
-                "Welcome Back!",
+                "Welcome Back !",
                 style: TextStyle(
                   fontFamily: "Poppins",
                   fontSize: 24,
