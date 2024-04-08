@@ -13,6 +13,8 @@ import 'package:news_app/features/register/ui/register_page.dart';
 
 class LoginPage extends StatelessWidget {
   LoginPage({super.key});
+
+  
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   final loginBloc = LoginBloc();
