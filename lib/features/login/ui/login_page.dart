@@ -43,7 +43,7 @@ class LoginPage extends StatelessWidget {
             ScaffoldMessenger.of(context).showSnackBar(
               const SnackBar(
                 duration: Duration(seconds: 1),
-                content: Text("Please fill out all fields"),
+                content: Text("Please fill out all fields!"),
                 backgroundColor: Colors.red,
               ),
             );
