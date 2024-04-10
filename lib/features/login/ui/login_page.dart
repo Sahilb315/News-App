@@ -50,7 +50,6 @@ class LoginPage extends StatelessWidget {
           } else if (state is LoginErrorActionState) {
             /// To pop the CircularProgressIndicator
             Navigator.pop(context);
-
             /// If the user spams then just close the previous SnackBar & open the new one
             ScaffoldMessenger.of(context).hideCurrentSnackBar();
             ScaffoldMessenger.of(context).showSnackBar(
